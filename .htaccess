@@ -1,0 +1,5 @@
+AddDefaultCharset UTF-8
+RewriteEngine On
+RewriteRule ^single?$ single.php
+RewriteRule ^404?$ 404.php
+ErrorDocument 404 /404
