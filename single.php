@@ -1,12 +1,14 @@
 <?php 
-	require "./header.php"
+	require "./header.php";
+	$ids=$_GET['id'];
+	$article  = R::findOne( 'articl', ' id = ? ', [ $ids ] );
 ?>
 <div class="container">
 <div class="issingularsingle">
 			
-				<img src="https://howdyho.net/static/uploads/posters/vzbjf65y5a8wk8c0o0.jpg" alt="" class="imgs">
-				<h2 class="anons"> Atom Beta - Бесплатный текстовый редактор</h2>
-				<p class="s">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Vel excepturi vero assumenda reprehenderit, fugit deleniti quasi harum facilis enim numquam consectetur minima nulla soluta quod perferendis alias repellendus sit, quo!</p>
+				<img src="<?php echo $article['img'];?>" alt="" class="imgs">
+				<h2 class="anons"><?php echo $article['anons'];?></h2>
+				<p class="s"><?php echo $article['text'];?></p>
 </div>
 </div>
 <?php 

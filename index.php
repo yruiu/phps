@@ -1,43 +1,26 @@
 <?php 
 	require "./header.php";
-	require_once __DIR__ . '/vendor/autoload.php';
-?>
+	require_once __DIR__ . '/vendor/autoload.php'; 
 
+$articl = R::dispense( 'articl' );
+?>
 		<div class="container" style="color:#fff">
-		<div class="single">
-						
-				<img src="https://howdyho.net/static/uploads/posters/vzbjf65y5a8wk8c0o0.jpg" alt="" class="img-thumbnail imgs">
-				<a class="anons"href="single">
-				<h2 >Atom</h2>
-			</a>
-				<p class="s">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Vel excepturi vero assumenda reprehenderit, fugit deleniti quasi harum facilis enim numquam consectetur minima nulla soluta quod perferendis alias repellendus sit, quo!</p>
-			</div>
-		<div class="single">
-			
-				<img src="https://howdyho.net/static/uploads/posters/vzbjf65y5a8wk8c0o0.jpg" alt="" class="img-thumbnail imgs">
-				<a class="anons"href="single">
-				<h2 >Atom</h2>
-			</a>
-				<p class="s">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Vel excepturi vero assumenda reprehenderit, fugit deleniti quasi harum facilis enim numquam consectetur minima nulla soluta quod perferendis alias repellendus sit, quo!</p>
-			</div>
-			<div class="single">
-			
-				<img src="https://howdyho.net/static/uploads/posters/vzbjf65y5a8wk8c0o0.jpg" alt="" class="img-thumbnail imgs">
-				<a class="anons"href="single">
-				<h2 >Atom</h2>
-			</a>
-				<p class="s">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Vel excepturi vero assumenda reprehenderit, fugit deleniti quasi harum facilis enim numquam consectetur minima nulla soluta quod perferendis alias repellendus sit, quo!</p>
-			</div>t
-			<div class="single">
-			
-				<img src="https://howdyho.net/static/uploads/posters/vzbjf65y5a8wk8c0o0.jpg" alt="" class="img-thumbnail imgs">
-				<a class="anons"href="single">
-				<h2 >Atom</h2>
-			</a>
-				<p class="s">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Vel excepturi vero assumenda reprehenderit, fugit deleniti quasi harum facilis enim numquam consectetur minima nulla soluta quod perferendis alias repellendus sit, quo!</p>
-			</div>
+			<?php 
+				$articls= R::findAll( 'articl' );
+				foreach ($articls as $articlItem) {
+					?>
+					<div class="single">
+						<img src="<?php echo $articlItem['img'] ?>" class="img-thumbnail imgs">
+						<a href="/single?id=<?php echo $articlItem['id']?>" class="anons">
+						<h2 class="anons"><?php echo $articlItem['anons'] ?></h2>
+						</a>
+						<p class="s"><?php echo $articlItem['text'] ?></p>
+					</div>
+					<?php
+				}
+			?>
+		
 </div>
-	</div>
 <?php
 require './footer.php';
 ?>
